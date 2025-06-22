@@ -11,13 +11,13 @@ uploaded_file = st.file_uploader("📤 Tải lên file .csv dữ liệu dòng ti
 # Bước 2: Kiểm tra nếu đã có file
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
-
+st.write("🧾 Tên cột có trong file CSV:", df.columns.tolist())
     # Xem trước các cột trong file để tránh lỗi
     st.write("📋 Các cột có trong file:", df.columns.tolist())
 
     try:
         # ⚠️ THAY ĐÚNG TÊN CỘT từ file của bạn (kiểm tra chính xác!)
-        df["score"] = df["Size"] * df["Premium"] / (df["Spread"] + 0.0001)
+        df["score"] = df["size"] * df["premium"] / (df["spread"] + 0.0001)
         df["score"] = df["score"].rank(pct=True) * 10  # Chuẩn hóa điểm số
 
         # Hiển thị bảng kết quả
