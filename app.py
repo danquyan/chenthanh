@@ -20,4 +20,3 @@ if uploaded_file:
     st.dataframe(df.sort_values("score", ascending=False).head(20), use_container_width=True)
 else:
     st.warning("⚠️ Vui lòng tải lên file CSV để bắt đầu phân tích.")
-
